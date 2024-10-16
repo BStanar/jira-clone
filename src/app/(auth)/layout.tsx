@@ -16,7 +16,7 @@ const AuthLayout = ({children} : AuthLayoutProps) =>{
                     </Button>
                 </nav>
             </div>
-            <div className="flex flex-col items-center justify-center pt-4 md:pt-14"> 
+            <div className="flex flex-col items-center justify-center p-4  md:pt-14"> 
                 {children}
             </div>
         </main>
