@@ -15,12 +15,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useCreateWorkspace } from "../api/use-create-workspace";
 import { ImageIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface CreateWorkspaceFormProp {
     onCancel?: () => void;
 };
 
 export const CreateWorkspaceForm = ( {onCancel}: CreateWorkspaceFormProp) => {
+    const router= useRouter();
     const { mutate, isPending } = useCreateWorkspace();
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,10 +46,10 @@ export const CreateWorkspaceForm = ( {onCancel}: CreateWorkspaceFormProp) => {
             image: values.image instanceof File ? values.image : "",
         };
         mutate({form: finalValues},{
-            onSuccess: () =>{
+            onSuccess: ({ data }) =>{
                 form.reset();
 
-                //TODO: REDIRECT TO WORKSPACE
+                router.push(`/WORKSPACES/${data.$id}`);
             }
         });
     }
