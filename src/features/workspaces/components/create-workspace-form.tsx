@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { useCreateWorkspace } from "../api/use-create-workspace";
 import { ImageIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface CreateWorkspaceFormProp {
     onCancel?: () => void;
@@ -49,7 +50,7 @@ export const CreateWorkspaceForm = ( {onCancel}: CreateWorkspaceFormProp) => {
             onSuccess: ({ data }) =>{
                 form.reset();
 
-                router.push(`/WORKSPACES/${data.$id}`);
+                router.push(`/workspaces/${data.$id}`);
             }
         });
     }
@@ -147,6 +148,7 @@ export const CreateWorkspaceForm = ( {onCancel}: CreateWorkspaceFormProp) => {
                                 variant="secondary"
                                 onClick={onCancel}
                                 disabled={isPending}
+                                className={cn(!onCancel && "invisible")}
                                 >
                                 Cancle
                             </Button>
