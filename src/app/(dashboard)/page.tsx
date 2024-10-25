@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-import { getCurrent } from "@/features/auth/actions";
 import { getWorkspaces } from "@/features/workspaces/actions";
+import { getCurrent } from "@/features/auth/queries";
 
 export default async function Home() {
 

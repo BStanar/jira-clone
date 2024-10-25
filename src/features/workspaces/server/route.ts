@@ -3,7 +3,7 @@ import { zValidator } from "@hono/zod-validator";
 
 import { sessionMiddleWare } from "@/lib/session-middleware";
 
-import { createWorkspacesSchema, updateWorkspacesSchema } from "../schema";
+import { createWorkspacesSchema, updateWorkspaceSchema } from "../schema";
 
 import { DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, WORKSPACES_ID } from "@/config";
 import { ID, Query } from "node-appwrite";
@@ -95,7 +95,7 @@ const app = new Hono()
     ).patch(
         "/:workspaceId",
         sessionMiddleWare,
-        zValidator("form", updateWorkspacesSchema),
+        zValidator("form", updateWorkspaceSchema),
         async (c) => {
             const databases = c.get("databases");
             const storage = c.get("storage");
@@ -111,9 +111,10 @@ const app = new Hono()
                 userId: user.$id
             });
 
-            if(!member || member.role !==MemberRole.ADMIN){
+            if(!member || member.role !== MemberRole.ADMIN){
                 return c.json({error: "Unauthorized"}, 401);
             }
+
             let uploadedImageUrl: string | undefined;
 
             if( image instanceof File ){
@@ -130,7 +131,7 @@ const app = new Hono()
 
                 uploadedImageUrl = `data:image/png;base64,${Buffer.from(arrayBuffer).toString("base64")}`;
             } else {
-                uploadedImageUrl= image;
+                uploadedImageUrl = image;
             }
 
             const workspace= await databases.updateDocument(
