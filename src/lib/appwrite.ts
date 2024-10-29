@@ -7,7 +7,6 @@ import {
 } from "node-appwrite"
 import { AUTH_COOKIE } from "@/features/auth/constants";
 import { cookies } from "next/headers";
-import { Database } from "lucide-react";
 
 export async function createSessionClient(){
     const client=new Client()

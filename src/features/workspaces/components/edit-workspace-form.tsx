@@ -267,7 +267,7 @@ export const EditWorkspaceForm = ( {onCancel, initialValues}: EditWorkspaceFormP
                             <div className="flex items-center gap-x-2">
                                 <Input disabled value={fullInviteLink} />
                                 <Button 
-                                onClick={() => {}}
+                                onClick={handleCopyInviteLink}
                                 variant="secondary"
                                 className="size-12"
                                 >
