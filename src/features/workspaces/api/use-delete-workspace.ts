@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 import { client } from "@/lib/rpc";
 
-type ResponseType = InferResponseType<typeof client.api.workspaces[":workspaceId"]["$delete"],201>;
+type ResponseType = InferResponseType<typeof client.api.workspaces[":workspaceId"]["$delete"],200>;
 type RequestType = InferRequestType<typeof client.api.workspaces[":workspaceId"]["$delete"]>;
 
 export const useDeleteWorkspace = () =>{
