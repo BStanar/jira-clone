@@ -3,6 +3,7 @@ import Image from "next/image";
 import { DottedSeparator } from "./dotted-separator";
 import { Navigation } from "./navigation";
 import { WorkspaceSwitcher } from "./workspace-switcher";
+import { Projects } from "./projects";
 
 export const Sidebar =() =>{
     return(
@@ -10,11 +11,12 @@ export const Sidebar =() =>{
             <Link href="/">
             <Image src="/logo.svg" alt="logo" height={164} width={48}/>
             </Link>
-            
-            <DottedSeparator/>
+            <DottedSeparator className="my-4"/>
             <WorkspaceSwitcher/>
-            <DottedSeparator/>
+            <DottedSeparator className="my-4"/>
             <Navigation/>
+            <DottedSeparator className="my-4"/>
+            <Projects/>
         </aside>
     )
 }
