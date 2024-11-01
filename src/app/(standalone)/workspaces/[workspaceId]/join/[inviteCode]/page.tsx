@@ -2,7 +2,7 @@ import { DATABASE_ID, WORKSPACES_ID } from "@/config";
 import { AUTH_COOKIE } from "@/features/auth/constants";
 import { getCurrent } from "@/features/auth/queries";
 import { getMember } from "@/features/members/utils";
-import { getWorkspaceInfo } from "@/features/workspaces/actions";
+import { getWorkspaceInfo } from "@/features/workspaces/queries";
 import { JoinWorkspaceForm } from "@/features/workspaces/components/join-workspace-form";
 import { Workspace } from "@/features/workspaces/types";
 import { createSessionClient } from "@/lib/appwrite";

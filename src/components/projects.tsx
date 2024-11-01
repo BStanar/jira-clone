@@ -1,6 +1,7 @@
 "use client"
 
 import { useGetProjects } from "@/features/projects/api/use-get-projects";
+import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { useCreateProjectModal } from "@/features/projects/hooks/use-create-project-modal";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { cn } from "@/lib/utils";
@@ -25,7 +26,7 @@ return (
         <RiAddCircleFill onClick={open} className="size-5 text-neutral-500 cursor-pointer hover:opacity-75 transition"></RiAddCircleFill>
     </div>
     {data?.documents.map((project)=>{
-        const href = `/workspaces/${workspaceId}/projects/${projectId}`;
+        const href = `/workspaces/${workspaceId}/projects/${project.$id}`;
         const isActive=pathname === href;
 
         return (
@@ -36,6 +37,7 @@ return (
                     isActive && "bg-white shadow-sm hover:opacity-100 text-primary"
                 )}
             >
+                <ProjectAvatar image={project.imageUrl} name={project.name}/>
                 <span className="truncate">{project.name}</span>
             </div>
             </Link>
