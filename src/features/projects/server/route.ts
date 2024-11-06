@@ -2,12 +2,10 @@ import { DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, PROJECTS_ID, WORKSPACES_ID }
 import { getMember } from "@/features/members/utils";
 import { sessionMiddleWare } from "@/lib/session-middleware";
 import { zValidator } from "@hono/zod-validator";
-import { error, log } from "console";
 import { Hono } from "hono"
 import { ID, Query } from "node-appwrite";
 import { z } from "zod"
 import { createProjectSchema, updateProjectSchema } from "../schemas";
-import { MemberRole } from "@/features/members/types";
 import { Project } from "../types";
 
 const app = new Hono()
