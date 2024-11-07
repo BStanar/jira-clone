@@ -14,13 +14,13 @@ interface DatePickerProps {
 	onChange: (date: Date) => void;
 	className?: string;
 	placeholder?: string;
-};
+}
 
 export const DatePicker = ({
 	onChange,
 	value,
 	className,
-	placeholder = "Select date",
+	placeholder,
 }: DatePickerProps) => {
 	return (
 		<Popover>
@@ -34,7 +34,7 @@ export const DatePicker = ({
 						className
 					)}
 				>
-					<CalendarIcon className="h-4 w-4 mr-2" />
+					<CalendarIcon className="size-4 mr-2" />
 					{value ? format(value, "PPP") : <span>{placeholder}</span>}
 				</Button>
 			</PopoverTrigger>
