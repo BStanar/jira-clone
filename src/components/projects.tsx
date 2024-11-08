@@ -10,15 +10,13 @@ import { usePathname } from "next/navigation";
 import { RiAddCircleFill } from "react-icons/ri";
 
 export const Projects = () => {
-    const projectId = null; // fix
-
 
     const pathname = usePathname();
-    const {open} = useCreateProjectModal();
     const workspaceId = useWorkspaceId();
-    const { data } = useGetProjects({
-        workspaceId,
-    });
+
+    const {open} = useCreateProjectModal();
+    const { data } = useGetProjects({ workspaceId });
+    
 return (
    <div className="flex flex-col gap-y-2">
     <div className="flex items-center justify-between">

@@ -84,7 +84,7 @@ export const EditWorkspaceForm = ( {onCancel, initialValues}: EditWorkspaceFormP
     }
 
     const handleResetInviteCode = async () => {
-        const ok = await confirmDelete();
+        const ok = await confirmReset();
         
         if(!ok) return;
         
@@ -298,7 +298,7 @@ export const EditWorkspaceForm = ( {onCancel, initialValues}: EditWorkspaceFormP
                             size="sm"
                             variant="destructive"
                             type="button"
-                            disabled={isPending}
+                            disabled={isPending || isDeletingWorkspace}
                             onClick={handleDelete}>
                             Delete workspace
                         </Button>

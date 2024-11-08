@@ -12,12 +12,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowLeftIcon, CopyIcon, ImageIcon } from "lucide-react";
+import { ArrowLeftIcon, ImageIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Project } from "../types";
 import { useConfirm } from "@/hooks/use-confirm";
-import { toast } from "sonner";
 import { useUpdateProject } from "../api/use-update-project";
 import { updateProjectSchema } from "../schemas";
 import { useDeleteProject } from "../api/use-delete-project";
@@ -32,7 +31,7 @@ export const EditProjectForm = ( {onCancel, initialValues}: EditProjectFormProp)
     const { mutate, isPending } = useUpdateProject();
     const { 
         mutate: deleteProject, 
-        isPending: isDeletingProject 
+        isPending: deletingProject 
     } = useDeleteProject(); 
 
     const [DeleteDialog,confirmDelete]= useConfirm(
@@ -233,7 +232,7 @@ export const EditProjectForm = ( {onCancel, initialValues}: EditProjectFormProp)
                             size="sm"
                             variant="destructive"
                             type="button"
-                            disabled={isPending}
+                            disabled={isPending || deletingProject}
                             onClick={handleDelete}>
                             Delete project
                         </Button>

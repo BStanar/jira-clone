@@ -142,7 +142,7 @@ export const DataKanban = ({
     return newTasks;
   });
   onChange(updatesPayload);
-}, []);
+}, [onChange]);
    return(
       <DragDropContext onDragEnd={onDragEnd}>
          <div className="flex overflow-x-auto">

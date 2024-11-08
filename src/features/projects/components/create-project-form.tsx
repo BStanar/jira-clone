@@ -54,7 +54,7 @@ export const CreateProjectForm = ( {onCancel}: CreateProjectFormProp) => {
         mutate({form: finalValues},{
             onSuccess: ({ data }) =>{
                 form.reset();
-                //TODO: REDIRECT TO PROJECT HOMEPAGE
+                router.push(`/workspaces/${workspaceId}/projects/${data.$id}`);
             }
         });
     }

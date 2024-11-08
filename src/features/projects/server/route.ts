@@ -1,4 +1,4 @@
-import { DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, PROJECTS_ID, WORKSPACES_ID } from "@/config";
+import { DATABASE_ID, IMAGES_BUCKET_ID, PROJECTS_ID } from "@/config";
 import { getMember } from "@/features/members/utils";
 import { sessionMiddleWare } from "@/lib/session-middleware";
 import { zValidator } from "@hono/zod-validator";

@@ -2,7 +2,6 @@ import { snakeCaseToTitleCase } from "@/lib/utils";
 import { TaskStatus } from "../types";
 import { CircleCheck, CircleDashedIcon, CircleDotDashedIcon, CircleDotIcon, CircleIcon, PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCreateTask } from "../api/use-create-task";
 import { useCreateTaskModal } from "../hooks/use-create-task-modal";
 
 interface KanbanColumnHeaderProps {

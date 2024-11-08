@@ -24,7 +24,7 @@ export const TaskAction = ({
 
    const workspaceId = useWorkspaceId();
 
-   const [Confirmdialog, cofirm] = useConfirm(
+   const [Confirmdialog, confirm] = useConfirm(
       "Delete task",
       "This action cannot be undone.",
       "destructive"

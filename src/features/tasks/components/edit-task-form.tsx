@@ -24,12 +24,10 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { createTaskSchema } from "@/features/tasks/schemas";
 
 import { Task, TaskStatus } from "../types";
-import { useCreateTask } from "../api/use-create-task";
 import { MemberAvatar } from "@/features/members/components/member-avatar";
 import { useUpdateTask } from "../api/use-update-task";
 
@@ -54,7 +52,6 @@ export const EditTaskForm = ({
 	projectOptions,
 	initialValues,
 }: EditTaskFormProps) => {
-	const workspaceId = useWorkspaceId();
 
 	const { mutate, isPending } = useUpdateTask();
 
