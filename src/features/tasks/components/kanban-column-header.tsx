@@ -34,7 +34,7 @@ export const KanbanColumnHeader = ({
    taskCount,
 }: KanbanColumnHeaderProps) => {
    const { open } = useCreateTaskModal();
-
+//TODO:: fill status on adding a task
    const icon = statusIconMap[board];
    return(
       <div className="px-2 py-1.5 flex items-center justify-between">
