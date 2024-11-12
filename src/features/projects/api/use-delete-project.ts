@@ -30,7 +30,7 @@ export const useDeleteProject = () =>{
 
             router.refresh();
             queryClient.invalidateQueries({queryKey: ["projects"]});
-            queryClient.invalidateQueries({queryKey: ["projects", data.$id]});
+            queryClient.invalidateQueries({queryKey: ["project", data.$id]});
         },
         onError: () => {
             toast.error("Failed to delete project")
