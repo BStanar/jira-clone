@@ -88,7 +88,7 @@ const app = new Hono()
          return c.json({error: "Unauthorized access to projects"}, 400);
       }
 
-      const projects = await databases.listDocuments(
+      const projects = await databases.listDocuments<Project>(
          DATABASE_ID,
          PROJECTS_ID,
          [
