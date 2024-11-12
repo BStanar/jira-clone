@@ -216,6 +216,12 @@ const app = new Hono()
 
       return c.json({data: {$id: existingProject.$id}});
    }
+).get(
+   "/:projectId/analytics",
+   sessionMiddleWare,
+   async (c) => {
+      
+   }
 );
 
 export default app;

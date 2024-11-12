@@ -4,13 +4,11 @@ import { toast } from "sonner";
 
 
 import { client } from "@/lib/rpc";
-import { useRouter } from "next/navigation";
 
 type ResponseType = InferResponseType<typeof client.api.tasks[":taskId"]["$patch"],200>;
 type RequestType = InferRequestType<typeof client.api.tasks[":taskId"]["$patch"]>;
 
 export const useUpdateTask = () =>{
-    const router = useRouter();
     const queryClient =useQueryClient();
 
     const mutation = useMutation<
@@ -28,7 +26,6 @@ export const useUpdateTask = () =>{
         onSuccess: ({data}) => {
             toast.success("Task updated");
 
-            router.refresh();
             queryClient.invalidateQueries({queryKey: ["tasks"]});
             queryClient.invalidateQueries({queryKey: ["task",data.$id]});
         },

@@ -2,12 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Task } from "../types";
 import { PencilIcon, XIcon } from "lucide-react";
 import { DottedSeparator } from "@/components/dotted-separator";
-import { OverviewProperty } from "./overview-property";
-import { MemberAvatar } from "@/features/members/components/member-avatar";
-import { TaskDate } from "./task-date";
-import { Badge } from "@/components/ui/badge";
-import { snakeCaseToTitleCase } from "@/lib/utils";
-import { useEditTaskModal } from "../hooks/use-edit-task-modal";
 import { useState } from "react";
 import { useUpdateTask } from "../api/use-update-task";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,6 +22,10 @@ export const TaskDescription = ({
       mutate({
          json: { description: value},
          param: { taskId: task.$id },
+      }, {
+         onSuccess: () => {
+            setIsEditing(false);
+         }
       });
    };
 
