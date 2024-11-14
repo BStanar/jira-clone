@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/form"
 import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
+import { signUpWithGithub } from "@/lib/oauth";
 
 
 
@@ -146,6 +147,7 @@ export const SignUpCard = () => {
                 size="lg"
                 className="w-full"
                 disabled={isPending}
+                onClick={()=> signUpWithGithub()}
             >
                 <FaGithub className="mr-2 size-5"/>
                 Login with Github

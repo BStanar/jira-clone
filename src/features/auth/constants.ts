@@ -1,1 +1,1 @@
-export const AUTH_COOKIE = "bs-jira-clone-session";
+export const AUTH_COOKIE = "jira-clone-session";
