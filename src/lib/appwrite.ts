@@ -5,9 +5,9 @@ import {
     Account,
     Databases,
     Users,
-} from "node-appwrite"
-import { AUTH_COOKIE } from "@/features/auth/constants";
+} from "node-appwrite";
 import { cookies } from "next/headers";
+import { AUTH_COOKIE } from "@/features/auth/constants";
 
 export async function createSessionClient(){
     const client=new Client()
@@ -29,15 +29,14 @@ export async function createSessionClient(){
         get databases() {
             return new Databases(client);
         }
-    }
+    };
 
-}
+};
 
 export async function createAdminClient() {
     const client = new Client()
         .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-        .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!)
-        .setKey(process.env.NEXT_APPWRITE_KEY!);
+        .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
     
     return {
         get account() {
@@ -46,5 +45,5 @@ export async function createAdminClient() {
         get users() {
             return new Users(client);
         }
-    }
-}
+    };
+};

@@ -418,7 +418,7 @@ const app = new Hono()
                  ]
              );
      
-           const completeTaskCount = thisMonthIncompleteTasks.total;
+           const completeTaskCount = thisMonthCompleteTasks.total;
            const completeTaskDifferance = completeTaskCount - lastMonthCompleteTasks.total;
      
            const thisMonthOverdueTasks = await databases.listDocuments(
@@ -445,8 +445,8 @@ const app = new Hono()
                  ]
              );
      
-           const OverdueTaskCount = thisMonthIncompleteTasks.total;
-           const OverdueTaskDifferance = completeTaskCount - lastMonthCompleteTasks.total;
+           const OverdueTaskCount = thisMonthOverdueTasks.total;
+           const OverdueTaskDifferance = OverdueTaskCount - lastMonthOverdueTasks.total;
      
      
            return c.json({
