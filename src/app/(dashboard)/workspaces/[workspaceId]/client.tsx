@@ -46,12 +46,6 @@ export const WorkspaceIdClient = () => {
 	if (!analytics || !tasks || !projects || !members)
 		return <PageError message="Failed to load workspace data" />;
 
-
-	if (projects.documents.length === 0) {
-		createProject();
-		return null;
-	 }
-
 	return (
 		<div className="h-full flex flex-col space-y-4">
 			<ProjectAnalytics data={analytics} />
