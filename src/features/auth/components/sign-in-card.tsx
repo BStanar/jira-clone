@@ -23,6 +23,10 @@ export const SignInCard = () => {
                 <CardTitle className="text-2xl">
                     Pozdrav Polina. Da, hiša ni prosta v tem obdobju. Poster nisam na vrijeme prihvatio ili odbio vas zahtjev za registraciju. Airbnb mi je blokirao te datume na njihovoj platformi. Na google mapama mozete naci moj broj. Ovo je moj broj +39762881786 pa se mozemo cuti preko vibera ili whatsapa. Airbnb ne dozvoljava slanje poruka broja preko poruka.
                 </CardTitle>
+            <br/>
+                <CardTitle className="text-2xl">
+                    Še enkrat se opravičim za to, lep dan Boris
+                </CardTitle>
             </CardHeader>
            
             <div className="px-2">
