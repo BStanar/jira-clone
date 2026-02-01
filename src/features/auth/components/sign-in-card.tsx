@@ -1,8 +1,5 @@
 "use client";
-import { z } from "zod";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod"
 
 import { DottedSeparator } from "@/components/dotted-separator";
 
@@ -13,7 +10,6 @@ import {
 } from "@/components/ui/card";
 
 
-import { loginSchema } from "../schemas";
 
 
 
