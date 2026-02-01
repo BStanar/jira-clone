@@ -1,51 +1,26 @@
 "use client";
 import { z } from "zod";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { DottedSeparator } from "@/components/dotted-separator";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 import {
     Card,
-    CardContent,
     CardHeader,
     CardTitle
 } from "@/components/ui/card";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormMessage
-} from "@/components/ui/form";
-import Link from "next/link";
+
+
 import { loginSchema } from "../schemas";
-import { useLogin } from "../api/use-login";
-import { signUpWithGithub, signUpWithGoogle } from "@/lib/oauth";
 
 
 
 
 
 export const SignInCard = () => {
-    const { mutate,isPending } = useLogin();
-
-    const form = useForm<z.infer<typeof loginSchema>>({
-        resolver: zodResolver(loginSchema),
-        defaultValues: {
-            email: "",
-            password: "",
-        },
-    });
-
-    const onSubmit = (values: z.infer<typeof loginSchema>) => {
-        mutate({json: values});
-    };
-
+    
     return (
         <Card className="w-full h-full md:w-[477px] border-none shadow-none">
             <CardHeader className="flex items-center justify-center text-center p-7">
